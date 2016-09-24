@@ -4,26 +4,16 @@ var download = require('download-git-repo');
 var ora = require('ora');
 var spinner = ora('downloading template')
 
-// console.log(process.argv[2])
-
 if(process.argv[2] !== 'init') {
 	return help();
 }
 
-function help() {
-	console.log('  Examples:')
-	console.log()
-	console.log('    # create a new project with an lightweight template')
-	console.log('    $ wxapp init my-project ')
-	console.log()
-}
-
 spinner.start();
-download('MeCKodo/vue-tap',process.argv[3], function (err) {
-	if(err) {
-		console.log('error')
-	}
+download('MeCKodo/wxapp',process.argv[3], function (err) {
 	spinner.stop()
+	if(err) {
+		return console.log('error   please try again.')
+	}
 	console.log()
 	console.log('    To get started:')
 	console.log()
@@ -33,3 +23,11 @@ download('MeCKodo/vue-tap',process.argv[3], function (err) {
 	console.log()
 	console.log('    Documentation can be found at xxxx')
 });
+
+function help() {
+	console.log('  Examples:')
+	console.log()
+	console.log('    # create a new project with an lightweight template')
+	console.log('    $ wxapp init my-project ')
+	console.log()
+}
