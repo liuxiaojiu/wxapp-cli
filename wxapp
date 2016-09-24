@@ -1,0 +1,35 @@
+#!/usr/bin/env node
+
+var download = require('download-git-repo');
+var ora = require('ora');
+var spinner = ora('downloading template')
+
+// console.log(process.argv[2])
+
+if(process.argv[2] !== 'init') {
+	return help();
+}
+
+function help() {
+	console.log('  Examples:')
+	console.log()
+	console.log('    # create a new project with an lightweight template')
+	console.log('    $ wxapp init my-project ')
+	console.log()
+}
+
+spinner.start();
+download('MeCKodo/vue-tap',process.argv[3], function (err) {
+	if(err) {
+		console.log('error')
+	}
+	spinner.stop()
+	console.log()
+	console.log('    To get started:')
+	console.log()
+	console.log('      $ cd ' + process.argv[3])
+	console.log('      npm install')
+	console.log('      npm run dev')
+	console.log()
+	console.log('    Documentation can be found at xxxx')
+});
