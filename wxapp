@@ -21,7 +21,7 @@ download('MeCKodo/wxapp',process.argv[3], function (err) {
 	console.log('      npm install')
 	console.log('      npm run dev')
 	console.log()
-	console.log('    Documentation can be found at xxxx')
+	console.log('    Documentation can be found at https://github.com/MeCKodo/wxapp-cli')
 });
 
 function help() {
